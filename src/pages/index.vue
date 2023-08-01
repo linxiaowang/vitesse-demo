@@ -1,46 +1,46 @@
-<script setup lang="ts" generic="T extends any, O extends any">
+<script setup lang="ts">
+import { getArticleRankList } from '~/api'
+
 defineOptions({
   name: 'IndexPage',
 })
 
-const name = ref('')
+onMounted(async () => {
+  const res = await getArticleRankList({
+    client_type: 2608,
+    cursor: '0',
+    id_type: 2,
+    limit: 20,
+    sort_type: 200,
+  })
+  console.log(res)
+})
 
-const router = useRouter()
-function go() {
-  if (name.value)
-    router.push(`/hi/${encodeURIComponent(name.value)}`)
-}
+const menuList = [
+  {
+    name: '关注',
+    path: 'following',
+  },
+  {
+    name: '综合',
+    path: 'following',
+  },
+  {
+    name: '后端',
+    path: 'following',
+  },
+  {
+    name: '前端',
+    path: 'following',
+  },
+]
+
+const articleList = [] as any
 </script>
 
 <template>
-  <div>
-    <div i-carbon-campsite inline-block text-4xl />
-    <p>
-      <a rel="noreferrer" href="https://github.com/antfu/vitesse-lite" target="_blank">
-        Vitesse Lite
-      </a>
-    </p>
-    <p>
-      <em text-sm op75>Opinionated Vite Starter Template</em>
-    </p>
-
-    <div py-4 />
-
-    <TheInput
-      v-model="name"
-      placeholder="What's your name?"
-      autocomplete="false"
-      @keydown.enter="go"
-    />
-
-    <div>
-      <button
-        class="m-3 text-sm btn"
-        :disabled="!name"
-        @click="go"
-      >
-        Go
-      </button>
-    </div>
+  <div flex="~ items-start justify-center" m-t>
+    <SideMenu :menu-list="menuList" />
+    <ArticleList :article-list="articleList" />
   </div>
 </template>
