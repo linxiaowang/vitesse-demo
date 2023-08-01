@@ -1,41 +1,49 @@
 <script setup lang="ts">
-import { getArticleRankList } from '~/api'
+import { getGeneralArticleList } from '~/api'
 
 defineOptions({
   name: 'IndexPage',
 })
 
-onMounted(async () => {
-  const res = await getArticleRankList({
-    client_type: 2608,
-    cursor: '0',
-    id_type: 2,
-    limit: 20,
-    sort_type: 200,
-  })
-  console.log(res)
-})
-
 const menuList = [
   {
     name: '关注',
-    path: 'following',
+    path: '/following',
   },
   {
     name: '综合',
-    path: 'following',
-  },
-  {
-    name: '后端',
-    path: 'following',
+    path: '/',
   },
   {
     name: '前端',
-    path: 'following',
+    path: '/frontend',
+  },
+  {
+    name: '后端',
+    path: '/backend',
   },
 ]
+const articleList = ref([])
 
-const articleList = [] as any
+onMounted(async () => {
+  // await getHotArticleList()
+  await getComprehensiveArticleList()
+})
+
+// async function getHotArticleList() {
+//   const res = await getArticleRankList({})
+//   articleList.value = res.data
+// }
+
+async function getComprehensiveArticleList() {
+  const res = await getGeneralArticleList({
+    id_type: 2,
+    client_type: 2608,
+    sort_type: 200,
+    limit: 10,
+  })
+  articleList.value = res.data
+}
 </script>
 
 <template>
