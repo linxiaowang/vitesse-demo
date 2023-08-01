@@ -8,6 +8,7 @@ specifiers:
   '@types/nprogress': ^0.2.0
   '@unocss/eslint-config': ^0.53.0
   '@unocss/reset': ^0.53.0
+  '@unocss/transformer-directives': ^0.54.1
   '@vitejs/plugin-vue': ^4.2.3
   '@vue-macros/volar': ^0.10.2
   '@vue/test-utils': ^2.3.2
@@ -51,6 +52,7 @@ devDependencies:
   '@types/nprogress': registry.npmjs.org/@types/nprogress/0.2.0
   '@unocss/eslint-config': registry.npmjs.org/@unocss/eslint-config/0.53.6_7haavtekmro7ptbnqmctjaodju
   '@unocss/reset': registry.npmjs.org/@unocss/reset/0.53.6
+  '@unocss/transformer-directives': registry.npmjs.org/@unocss/transformer-directives/0.54.1
   '@vitejs/plugin-vue': registry.npmjs.org/@vitejs/plugin-vue/4.2.3_vite@4.4.7+vue@3.3.4
   '@vue-macros/volar': registry.npmjs.org/@vue-macros/volar/0.10.2_vue-tsc@1.8.8+vue@3.3.4
   '@vue/test-utils': registry.npmjs.org/@vue/test-utils/2.4.1_vue@3.3.4
@@ -1355,6 +1357,12 @@ packages:
     version: 0.53.6
     dev: true
 
+  registry.npmjs.org/@unocss/core/0.54.1:
+    resolution: {integrity: sha512-lbwvGD91liMNEZs3jwXxLrIHIn/J4dkJpeKdosRdm1xObqrkg0+Zx1fVn6X+GOX74yvjQlzbu/ODZEXFQC3mGw==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/@unocss/core/-/core-0.54.1.tgz}
+    name: '@unocss/core'
+    version: 0.54.1
+    dev: true
+
   registry.npmjs.org/@unocss/eslint-config/0.53.6_7haavtekmro7ptbnqmctjaodju:
     resolution: {integrity: sha512-shS4CV/TcyCqYsj/uk2uxohVNkm9qojuafej889KmiTySosIN+WDcyP0zhAX5vLHIeLbPJUbYCTrdu1TIXhsTA==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/@unocss/eslint-config/-/eslint-config-0.53.6.tgz}
     id: registry.npmjs.org/@unocss/eslint-config/0.53.6
@@ -1534,6 +1542,15 @@ packages:
     version: 0.53.6
     dependencies:
       '@unocss/core': registry.npmjs.org/@unocss/core/0.53.6
+      css-tree: registry.npmjs.org/css-tree/2.3.1
+    dev: true
+
+  registry.npmjs.org/@unocss/transformer-directives/0.54.1:
+    resolution: {integrity: sha512-nNltKSo5dTKcjgehPV0o6hD3dJzCixnmsaLNwTtB3w7GUsESn4tl4JnDv0PCPbiuVmZFwLZlFA4aYOfZ/AzLsQ==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/@unocss/transformer-directives/-/transformer-directives-0.54.1.tgz}
+    name: '@unocss/transformer-directives'
+    version: 0.54.1
+    dependencies:
+      '@unocss/core': registry.npmjs.org/@unocss/core/0.54.1
       css-tree: registry.npmjs.org/css-tree/2.3.1
     dev: true
 
